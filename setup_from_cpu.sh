@@ -13,7 +13,7 @@
 #SBATCH --output=random.log          # Standard output and error log
 
 
-source ~/.load_MeldV2                #load Amber, OpenMM+Meld
+source ~/.load_OpenMM_cuda10         #load Ambertools, OpenMM+Meld
 mkdir TEMPLATES                      #create directory to save minimized initial pdb file
 
 cat<<EOF>setup_random.py
@@ -48,7 +48,7 @@ Stage 1 - minimisation of 1sr protein
  /
 EOF
 source ~/.load_Amber
-pmemd -O \
+sander -O \
     -i minimize.in \
     -o minimize.out \
     -c system.mdcrd \
