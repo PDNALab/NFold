@@ -8,9 +8,8 @@ PerezLab@UF
 ----------------------------------------
 Required software:
 
-Amber: http://ambermd.org/
 OpenMM: https://github.com/openmm/openmm
-Meld: https://github.com/maccallumlab/meld
+Meld: https://github.com/maccallumlab/meld (Please make sure installing all required tools listed in README.md of Meld repository.)
 
 -----------------------------------------
 
@@ -26,7 +25,7 @@ Output: contacts.dat,  tight_contacts.dat,  phi.dat,  tight_phi.dat,  psi.dat,  
 
 ```sbatch setup_from_random_cpu.sh``` 
 
-Description: Before starting Meld simulation, we generate a starting system from given sequence and then minimize it with Amber.
+Description: Before starting Meld simulation, we generate a starting system from given sequence and then minimize it with sander in Ambertools.
 Input:  sequence.dat (contains only the second line of sequence.fa file)
 Output: TEMPLATES/minimized.pdb
 
