@@ -2,7 +2,7 @@
 Process Machine Learning Histogram data to setup MELD folding simulations
 
 ## Instruction for running Meld simulation
-04/30/2021 
+05/12/2021 
 PerezLab@UF
 
 ----------------------------------------
