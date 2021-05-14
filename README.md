@@ -2,13 +2,14 @@
 Process Machine Learning Histogram data to setup MELD folding simulations
 
 ## Instruction for running Meld simulation
-04/30/2021 
+05/12/2021 
 PerezLab@UF
 
 ----------------------------------------
 Required software:
 
 OpenMM: https://github.com/openmm/openmm
+
 Meld: https://github.com/maccallumlab/meld (Please make sure installing all required tools listed in README.md of Meld repository.)
 
 -----------------------------------------
