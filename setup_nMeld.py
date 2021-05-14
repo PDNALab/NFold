@@ -160,7 +160,7 @@ def setup_system():
 
 
     # Distance restraint. We trust 90% and 80% of tight and broad range 
-    alphaFold = get_tight_distogram('tight_contacts.dat',s,scaler=dist_scaler,tight=True)
+    alphaFold = get_distogram('tight_contacts.dat',s,scaler=dist_scaler,tight=True)
     s.restraints.add_selectively_active_collection(alphaFold, int(len(alphaFold)*0.90))   # trust 90% of the data
     alphaFold = get_distogram('contacts.dat',s,scaler=dist_scaler)
     s.restraints.add_selectively_active_collection(alphaFold, int(len(alphaFold)*0.80))   # trust 80% of the data
