@@ -8,7 +8,7 @@ PerezLab@UF
 ----------------------------------------
 Required software:
 
-OpenMM: https://github.com/openmm/openmm
+OpenMM 7.5.0: https://github.com/openmm/openmm/tree/7.5.0
 
 Meld 0.4.14: https://github.com/maccallumlab/meld/tree/0.4.14 with additional line 
 ```print(tleap_string)```
