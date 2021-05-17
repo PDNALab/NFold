@@ -10,7 +10,9 @@ Required software:
 
 OpenMM: https://github.com/openmm/openmm
 
-Meld: https://github.com/maccallumlab/meld (Please make sure installing all required tools listed in README.md of Meld repository.)
+Meld 0.4.14: https://github.com/maccallumlab/meld/tree/0.4.14 with additional line 
+```print(tleap_string)```
+after line 81 in builder.py -> https://github.com/maccallumlab/meld/blob/fbfafd58ee1fdb68d7c37eef1d49e1474f4f3392/meld/system/builder.py#L81 (Please make sure installing all required tools listed in README.md of Meld repository.)
 
 -----------------------------------------
 
