@@ -34,7 +34,7 @@ Output: TEMPLATES/minimized.pdb
 
 ### step 3: Start Meld simulation with OpenMM.
 
-```sbatch job_meld.sh``` (contains 'python setup_Meld.py' inside)
+```sbatch job_meld.sh``` (contains ```python setup_Meld.py``` inside)
 
 Description: Setup Meld simulation using ff14SBonlysc force field + restraints derived from output files in step 1.
 Input:  setup_Meld.py, phi.dat, tight_phi.dat, psi.dat, tight_psi.dat, contact.dat, tight_contact.dat 
