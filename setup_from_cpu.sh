@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=random            # Job name
+#SBATCH --job-name=one            # Job name
 #SBATCH --mail-type=END,FAIL         # Mail events (NONE, BEGIN, END, FAIL, ALL)
 #SBATCH --ntasks=1      
 #SBATCH --cpus-per-task=1            # Number of cores per MPI rank 
@@ -7,13 +7,14 @@
 #SBATCH --ntasks-per-node=1          # How many tasks on each node
 #SBATCH --ntasks-per-socket=1        # How many tasks on each CPU or socket
 #SBATCH --mem-per-cpu=800mb            
+#SBATCH --partition=hpg2-dev
 #SBATCH --distribution=cyclic:cyclic
 #SBATCH --mem-per-cpu=800mb          # Memory per processor
 #SBATCH --time=10:00:00              # Time limit hrs:min:sec
 #SBATCH --output=random.log          # Standard output and error log
 
 
-source ~/.load_OpenMM_cuda10         #load Ambertools, OpenMM+Meld
+source ~/.load_OpenMM_cuda10_2021         #load Ambertools, OpenMM+Meld
 mkdir TEMPLATES                      #create directory to save minimized initial pdb file
 
 cat<<EOF>setup_random.py
@@ -30,9 +31,10 @@ def setup_system():
     n_res = len(sequence.split())
     
     # build the system
-    p = system.ProteinMoleculeFromSequence(sequence)
-    b = system.SystemBuilder(forcefield="ff14sbside")
-    s = b.build_system_from_molecules([p])
+    p = system.subsystem.SubSystemFromSequence(sequence)           
+    b = system.builder.SystemBuilder(forcefield="ff14sbside")
+    s = b.build_system([p])                  
+
 setup_system()
 EOF
 

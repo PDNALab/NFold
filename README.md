@@ -8,11 +8,11 @@ PerezLab@UF
 ----------------------------------------
 Required software:
 
-OpenMM: https://github.com/openmm/openmm
+OpenMM 7.5.0: https://github.com/openmm/openmm/tree/7.5.0
 
 Meld 0.4.14: https://github.com/maccallumlab/meld/tree/0.4.14 with additional line 
 ```print(tleap_string)```
-after line 81 in builder.py -> https://github.com/maccallumlab/meld/blob/fbfafd58ee1fdb68d7c37eef1d49e1474f4f3392/meld/system/builder.py#L81 (Please make sure installing all required tools listed in README.md of Meld repository.)
+after line 128 in builder.py -> https://github.com/maccallumlab/meld/blob/a941a5d9bb92a43984172ef57b93762edc484198/meld/system/builder.py#L128 (Please make sure installing all required tools listed in README.md of Meld repository.)
 
 -----------------------------------------
 
@@ -26,7 +26,7 @@ Output: contacts.dat,  tight_contacts.dat,  phi.dat,  tight_phi.dat,  psi.dat,  
 
 ### step 2: Generate starting structure from Amber minimization.
 
-```sbatch setup_from_random_cpu.sh``` 
+```sbatch setup_from_cpu.sh``` 
 
 Description: Before starting Meld simulation, we generate a starting system from given sequence and then minimize it with sander in Ambertools.
 Input:  sequence.dat (contains only the second line of sequence.fa file)
@@ -34,8 +34,8 @@ Output: TEMPLATES/minimized.pdb
 
 ### step 3: Start Meld simulation with OpenMM.
 
-```sbatch job_30_new.sh``` (contains 'python setup_aMeld.py' inside)
+```sbatch job_meld.sh``` (contains 'python setup_Meld.py' inside)
 
 Description: Setup Meld simulation using ff14SBonlysc force field + restraints derived from output files in step 1.
-Input:  setup_aMeld.py, sequence.dat, phi.dat, tight_phi.dat, psi.dat, tight_psi.dat, contact.dat, tight_contact.dat 
-Output: Data/ remd.log (Data/ stores all simulation output, remd.log keep track of the simulation.)
+Input:  setup_Meld.py, phi.dat, tight_phi.dat, psi.dat, tight_psi.dat, contact.dat, tight_contact.dat 
+Output: Data/ Logs/ (Data/ stores all simulation output, Logs/ keep track of the simulation in all replicas.)

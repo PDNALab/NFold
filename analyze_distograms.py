@@ -101,7 +101,7 @@ for i in range(L):
             if sequence[j] is 'G':
                 n_j = 'CA'
             #amber numbering
-            fo.write("{} {} {} {} {}\n".format(i+1,n_i,j+1,n_j,hmin + value*spacing))
+            fo.write("{} {} {} {} {}\n".format(i,n_i,j,n_j,hmin + value*spacing))
             fo.write('\n')
             tight_contacts.append([i,j])
             ax2.plot(disto[:,i,j])
@@ -124,7 +124,7 @@ for i in range(L):
                 n_j = 'CA'
             #amber numbering
             if [i,j] not in tight_contacts:
-                fo.write("{} {} {} {} {}\n".format(i+1,n_i,j+1,n_j,hmin + value*spacing))
+                fo.write("{} {} {} {} {}\n".format(i,n_i,j,n_j,hmin + value*spacing))
                 fo.write('\n')
                 ax2.plot(disto[:,i,j])
         else:           
@@ -155,7 +155,7 @@ for i in range(1,L):
         value = analyze_disto(phi[:,i],tight_n_bins,threshold)
         if value:
             #amber numbering
-            f0.write("{} {}\n".format(i+1,hmin + value*spacing))
+            f0.write("{} {}\n".format(i,hmin + value*spacing))
          #   fo.write('\n')
             tight_phi.append(i)
             ax2.plot(disto[:,i])
@@ -167,7 +167,7 @@ for i in range(1,L):
         if value:
             #amber numbering
             if i not in tight_phi:
-                f1.write("{} {}\n".format(i+1,hmin + value*spacing))
+                f1.write("{} {}\n".format(i,hmin + value*spacing))
          #   fo.write('\n')
                 ax2.plot(disto[:,i])
         else:
@@ -181,7 +181,7 @@ for i in range(0,L-1):
         value = analyze_disto(psi[:,i],tight_n_bins,threshold)
         if value:
             #amber numbering
-            f2.write("{} {}\n".format(i+1,hmin + value*spacing,window))
+            f2.write("{} {}\n".format(i,hmin + value*spacing,window))
         #    f2.write('\n')
             tight_psi.append(i)
             ax2.plot(psi[:,i])
@@ -196,7 +196,7 @@ for i in range(0,L-1):
         if value:
             #amber numbering
             if i not in tight_psi:
-                f3.write("{} {}\n".format(i+1,hmin + value*spacing,window))
+                f3.write("{} {}\n".format(i,hmin + value*spacing,window))
         #    f2.write('\n')
                 ax2.plot(psi[:,i])
         else:
