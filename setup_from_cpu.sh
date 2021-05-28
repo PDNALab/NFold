@@ -54,7 +54,7 @@ sander -O \
     -i minimize.in \
     -o minimize.out \
     -c system.mdcrd \
-    -ref system.mdcdr \
+    -ref system.mdcrd \
     -r eq0.rst \
     -p system.top \
     -e eq0.ene \
